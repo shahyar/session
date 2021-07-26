@@ -1,13 +1,15 @@
 {
-  "name": "express-session",
-  "version": "1.17.2",
-  "description": "Simple session middleware for Express",
+  "name": "express-session-better",
+  "version": "2.17.3",
+  "description": "Simple session middleware for Express, now with proper touch management and improved performance",
   "author": "TJ Holowaychuk <tj@vision-media.ca> (http://tjholowaychuk.com)",
   "contributors": [
-    "Douglas Christopher Wilson <doug@somethingdoug.com>",
-    "Joe Wagner <njwjs722@gmail.com>"
+    "Shahyar Ghobadpour <express-session-better@yar.gs>"
   ],
-  "repository": "expressjs/session",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shahyar/session.git"
+  },
   "license": "MIT",
   "dependencies": {
     "cookie": "0.4.1",
@@ -44,5 +46,13 @@
     "test-ci": "nyc --reporter=lcov --reporter=text npm test",
     "test-cov": "nyc npm test",
     "version": "node scripts/version-history.js && git add HISTORY.md"
+  },
+  "bugs": {
+    "url": "https://github.com/shahyar/session/issues"
+  },
+  "homepage": "https://github.com/shahyar/session#readme",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
   }
 }

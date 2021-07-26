@@ -1,4 +1,4 @@
-# express-session
+# express-session-better
 
 [![NPM Version][npm-version-image]][npm-url]
 [![NPM Downloads][npm-downloads-image]][node-url]
@@ -12,13 +12,13 @@ This is a [Node.js](https://nodejs.org/en/) module available through the
 [`npm install` command](https://docs.npmjs.com/getting-started/installing-npm-packages-locally):
 
 ```sh
-$ npm install express-session
+$ npm install express-session-better
 ```
 
 ## API
 
 ```js
-var session = require('express-session')
+var session = require('express-session-better')
 ```
 
 ### session(options)
@@ -42,7 +42,7 @@ For a list of stores, see [compatible session stores](#compatible-session-stores
 
 #### Options
 
-`express-session` accepts these properties in the options object.
+`express-session-better` accepts these properties in the options object.
 
 ##### cookie
 
