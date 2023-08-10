@@ -468,7 +468,7 @@ function session(options) {
 
     // determine if session should be saved to store
     function shouldSave(req, getHash) {
-      return !saveUninitializedSession && cookieId !== req.sessionID
+      return !saveUninitializedSession && !savedHash && cookieId !== req.sessionID
         ? isModified(req.session, getHash)
         : !isSaved(req.session, getHash)
     }

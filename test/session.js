@@ -581,7 +581,7 @@ describe('session()', function(){
           request(server)
           .get('/')
           .set('Cookie', cookie(res))
-          .expect(500, /Cannot read property/, done)
+          .expect(500, /Cannot read prop/, done)
         })
       })
     })
@@ -1920,6 +1920,31 @@ describe('session()', function(){
           .set('Cookie', cookie(res))
           .expect(shouldSetSessionInStore(store))
           .expect(200, 'saved', done)
+        })
+      })
+
+      describe('when saveUninitialized is false', function () {
+        it('should prevent end-of-request save', function (done) {
+          var store = new session.MemoryStore()
+          var server = createServer({ saveUninitialized: false, store: store }, function (req, res) {
+            req.session.hit = true
+            req.session.save(function (err) {
+              if (err) return res.end(err.message)
+              res.end('saved')
+            })
+          })
+
+          request(server)
+            .get('/')
+            .expect(shouldSetSessionInStore(store))
+            .expect(200, 'saved', function (err, res) {
+              if (err) return done(err)
+              request(server)
+                .get('/')
+                .set('Cookie', cookie(res))
+                .expect(shouldSetSessionInStore(store))
+                .expect(200, 'saved', done)
+            })
         })
       })
     })
